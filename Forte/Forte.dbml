@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ForteQuestX" Class="ForteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=cmdlhrlt921;Initial Catalog=ForteQuestX;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ForteQuestXConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Activities1" Member="Activities1s">
+    <Type Name="Activities1">
+      <Column Name="ActivityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ActivityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityType" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IsTeam" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MaxScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="InstructorWeightage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TAWeightage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Activities1_ForteQuestActivity" Member="ForteQuestActivities" ThisKey="ActivityId" OtherKey="Activities_ActivityId" Type="ForteQuestActivity" />
+      <Association Name="Activities1_SubMapping" Member="SubMappings" ThisKey="ActivityId" OtherKey="Activity_ActivityId" Type="SubMapping" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ForteQuestActivities" Member="ForteQuestActivities">
+    <Type Name="ForteQuestActivity">
+      <Column Name="ForteQuest_ForteQuestId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Activities_ActivityId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Activities1_ForteQuestActivity" Member="Activities1" ThisKey="Activities_ActivityId" OtherKey="ActivityId" Type="Activities1" IsForeignKey="true" />
+      <Association Name="ForteQuest_ForteQuestActivity" Member="ForteQuest" ThisKey="ForteQuest_ForteQuestId" OtherKey="ForteQuestId" Type="ForteQuest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ForteQuestMapping" Member="ForteQuestMappings">
+    <Type Name="ForteQuestMapping">
+      <Column Name="ForteQuest_ForteQuestId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Mappings_MappingId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ForteQuest_ForteQuestMapping" Member="ForteQuest" ThisKey="ForteQuest_ForteQuestId" OtherKey="ForteQuestId" Type="ForteQuest" IsForeignKey="true" />
+      <Association Name="Mapping_ForteQuestMapping" Member="Mapping" ThisKey="Mappings_MappingId" OtherKey="MappingId" Type="Mapping" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ForteQuests" Member="ForteQuests">
+    <Type Name="ForteQuest">
+      <Column Name="ForteQuestId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SceduledDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ForteQuestName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="ForteQuest_ForteQuestActivity" Member="ForteQuestActivities" ThisKey="ForteQuestId" OtherKey="ForteQuest_ForteQuestId" Type="ForteQuestActivity" />
+      <Association Name="ForteQuest_ForteQuestMapping" Member="ForteQuestMappings" ThisKey="ForteQuestId" OtherKey="ForteQuest_ForteQuestId" Type="ForteQuestMapping" />
+      <Association Name="ForteQuest_ForteQuestSubMapping" Member="ForteQuestSubMappings" ThisKey="ForteQuestId" OtherKey="ForteQuest_ForteQuestId" Type="ForteQuestSubMapping" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ForteQuestSubMapping" Member="ForteQuestSubMappings">
+    <Type Name="ForteQuestSubMapping">
+      <Column Name="ForteQuest_ForteQuestId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SubMappings_SubMappingId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ForteQuest_ForteQuestSubMapping" Member="ForteQuest" ThisKey="ForteQuest_ForteQuestId" OtherKey="ForteQuestId" Type="ForteQuest" IsForeignKey="true" />
+      <Association Name="SubMapping_ForteQuestSubMapping" Member="SubMapping" ThisKey="SubMappings_SubMappingId" OtherKey="SubMappingId" Type="SubMapping" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mappings" Member="Mappings">
+    <Type Name="Mapping">
+      <Column Name="MappingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RSubtraits" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ISubtraits" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ASubtraits" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SSubtraits" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ESubtraits" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CSubtraits" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="RWeights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IWeights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="AWeights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SWeights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="EWeights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CWeights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Mapping_ForteQuestMapping" Member="ForteQuestMappings" ThisKey="MappingId" OtherKey="Mappings_MappingId" Type="ForteQuestMapping" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubMappings" Member="SubMappings">
+    <Type Name="SubMapping">
+      <Column Name="SubMappingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="R1_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="I1_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="A1_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="S1_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="E1_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="C1_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="R2_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="I2_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="A2_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="S2_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="E2_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="C2_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="R3_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="I3_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="A3_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="S3_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="E3_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="C3_Weights" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Activity_ActivityId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SubMapping_ForteQuestSubMapping" Member="ForteQuestSubMappings" ThisKey="SubMappingId" OtherKey="SubMappings_SubMappingId" Type="ForteQuestSubMapping" />
+      <Association Name="Activities1_SubMapping" Member="Activities1" ThisKey="Activity_ActivityId" OtherKey="ActivityId" Type="Activities1" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Forte">
+  <DataContextMoniker Name="/ForteDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2fb7986d-69fb-4b5f-80b0-338310ea971b" absoluteBounds="3, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ForteDataContext/Activities1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4364186b-239c-46c0-a6b8-aa9c624b8589" absoluteBounds="3.015, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="619b2378-177a-4efe-9388-dc8a59bb352b" absoluteBounds="6.125, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/ForteDataContext/ForteQuestActivity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f6620b6-5815-4b15-bf67-24ed3cf8eaa7" absoluteBounds="6.1400000000000006, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a61c77b-448d-4f18-9af7-f1650b7f60d3" absoluteBounds="5.5, 4.625, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/ForteDataContext/ForteQuestMapping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33674903-cbb6-4a45-9855-c48ded7fa582" absoluteBounds="5.5150000000000006, 5.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="918ba096-ee39-414a-87b8-bd84ec190bd0" absoluteBounds="2.625, 4.5, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/ForteDataContext/ForteQuest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17fe6281-da6b-408a-ad77-f6dfca7d54f9" absoluteBounds="2.64, 4.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cb8af197-7b66-4e53-8d4a-911e7aa930be" absoluteBounds="2.625, 6.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ForteDataContext/ForteQuestSubMapping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40e38919-ab18-4c41-b78a-eadbfa3e8d9c" absoluteBounds="2.64, 6.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fb9c9bb5-c26c-4005-bf3a-4c8c08f69990" absoluteBounds="8.125, 2.75, 2, 3.3093082682291657">
+      <DataClassMoniker Name="/ForteDataContext/Mapping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc9d82dd-6f2d-48f3-91d2-a44fa541f295" absoluteBounds="8.14, 3.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c81beb31-15e9-480f-acdc-d2b79f0926bc" absoluteBounds="0.5, 2.25, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/ForteDataContext/SubMapping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8756cd58-888f-4a14-8f43-c8876847f460" absoluteBounds="0.51500000000000057, 2.7100000000000009, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 1.34699625651042); (6.125 : 1.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForteDataContext/Activities1/Activities1_ForteQuestActivity" />
+      <nodes>
+        <classShapeMoniker Id="2fb7986d-69fb-4b5f-80b0-338310ea971b" />
+        <classShapeMoniker Id="619b2378-177a-4efe-9388-dc8a59bb352b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 4.53125); (7.8125 : 4.53125); (7.8125 : 1.94399251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForteDataContext/ForteQuest/ForteQuest_ForteQuestActivity" />
+      <nodes>
+        <classShapeMoniker Id="918ba096-ee39-414a-87b8-bd84ec190bd0" />
+        <classShapeMoniker Id="619b2378-177a-4efe-9388-dc8a59bb352b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 5.22199625651042); (5.5 : 5.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForteDataContext/ForteQuest/ForteQuest_ForteQuestMapping" />
+      <nodes>
+        <classShapeMoniker Id="918ba096-ee39-414a-87b8-bd84ec190bd0" />
+        <classShapeMoniker Id="1a61c77b-448d-4f18-9af7-f1650b7f60d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.625 : 5.8862939453125); (3.625 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForteDataContext/ForteQuest/ForteQuest_ForteQuestSubMapping" />
+      <nodes>
+        <classShapeMoniker Id="918ba096-ee39-414a-87b8-bd84ec190bd0" />
+        <classShapeMoniker Id="cb8af197-7b66-4e53-8d4a-911e7aa930be" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.125 : 5.22199625651042); (7.5 : 5.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForteDataContext/Mapping/Mapping_ForteQuestMapping" />
+      <nodes>
+        <classShapeMoniker Id="fb9c9bb5-c26c-4005-bf3a-4c8c08f69990" />
+        <classShapeMoniker Id="1a61c77b-448d-4f18-9af7-f1650b7f60d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 6.70270914713542); (2.625 : 6.70270914713542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForteDataContext/SubMapping/SubMapping_ForteQuestSubMapping" />
+      <nodes>
+        <classShapeMoniker Id="c81beb31-15e9-480f-acdc-d2b79f0926bc" />
+        <classShapeMoniker Id="cb8af197-7b66-4e53-8d4a-911e7aa930be" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 2.67390055338542); (2.5 : 2.67390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForteDataContext/Activities1/Activities1_SubMapping" />
+      <nodes>
+        <classShapeMoniker Id="2fb7986d-69fb-4b5f-80b0-338310ea971b" />
+        <classShapeMoniker Id="c81beb31-15e9-480f-acdc-d2b79f0926bc" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
