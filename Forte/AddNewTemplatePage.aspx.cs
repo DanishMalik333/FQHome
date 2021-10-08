@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Forte.ForteQuestNS;
 using ForteQuest.ForteQuestNS;
 
 namespace ForteQuest
@@ -220,22 +221,21 @@ namespace ForteQuest
             fdb.SubmitChanges();
 
             // Storing Mappings in database 
-            Mapping NewMapping = new Mapping();
-            NewMapping.RSubtraits = String.Join(",", m.Traits[0].SubTraitNames.ToList());
-            NewMapping.ISubtraits = String.Join(",", m.Traits[1].SubTraitNames.ToList());
-            NewMapping.ASubtraits = String.Join(",", m.Traits[2].SubTraitNames.ToList());
-            NewMapping.SSubtraits = String.Join(",", m.Traits[3].SubTraitNames.ToList());
-            NewMapping.ESubtraits = String.Join(",", m.Traits[4].SubTraitNames.ToList());
-            NewMapping.CSubtraits = String.Join(",", m.Traits[5].SubTraitNames.ToList());
-            NewMapping.RWeights = String.Join(",", m.Traits[0].SubTraitWeights.ToList());
-            NewMapping.IWeights = String.Join(",", m.Traits[1].SubTraitWeights.ToList());
-            NewMapping.AWeights = String.Join(",", m.Traits[2].SubTraitWeights.ToList());
-            NewMapping.SWeights = String.Join(",", m.Traits[3].SubTraitWeights.ToList());
-            NewMapping.EWeights = String.Join(",", m.Traits[4].SubTraitWeights.ToList());
-            NewMapping.CWeights = String.Join(",", m.Traits[5].SubTraitWeights.ToList());
-            fdb.Mappings.InsertOnSubmit(NewMapping);
+            Hashtable ht = new Hashtable();
+            ht.Add("@rsubtraits", String.Join(",", m.Traits[0].SubTraitNames.ToList()));
+            ht.Add("@isubtraits", String.Join(",", m.Traits[1].SubTraitNames.ToList()));
+            ht.Add("@asubtraits", String.Join(",", m.Traits[2].SubTraitNames.ToList()));
+            ht.Add("@ssubtraits", String.Join(",", m.Traits[3].SubTraitNames.ToList()));
+            ht.Add("@esubtraits", String.Join(",", m.Traits[4].SubTraitNames.ToList()));
+            ht.Add("@csubtraits", String.Join(",", m.Traits[5].SubTraitNames.ToList()));
+            ht.Add("@rweights", String.Join(",", m.Traits[0].SubTraitWeights.ToList()));
+            ht.Add("@iweights", String.Join(",", m.Traits[1].SubTraitWeights.ToList()));
+            ht.Add("@aweights", String.Join(",", m.Traits[2].SubTraitWeights.ToList()));
+            ht.Add("@sweights", String.Join(",", m.Traits[3].SubTraitWeights.ToList()));
+            ht.Add("@eweights", String.Join(",", m.Traits[4].SubTraitWeights.ToList()));
+            ht.Add("@cweights", String.Join(",", m.Traits[5].SubTraitWeights.ToList()));
 
-            fdb.SubmitChanges();
+            DBContext.ExecuteNonScalor("stp_Mapping_Insert", ht);
 
             // Updating ForteQuestMapping Link Table in database
             ForteQuestMapping FQM = new ForteQuestMapping();
